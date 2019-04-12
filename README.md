@@ -6,45 +6,12 @@ React hoc component for rendering page only on user log success.
 [![npm version](https://img.shields.io/npm/v/with-react-login.svg?style=flat-square)](https://npmjs.org/package/with-react-login)
 
 ## Basic Usage
-Let's show an example in a redux-saga-data install, but it is compatible also with
-redux-thunk-data or react-hooks-data or any kind of fetch system as long as you declare
-dispatch and requestData action in the config of with-react-login.
 
-You need to add first the data reducer in your root reducer:
-You need to install a redux-saga setup with the watchDataActions and the data reducer,
-don't forget to specify the url of your api here:
+### Using redux-saga-data
 
-```javascript
-import {
-  applyMiddleware,
-  combineReducers,
-  createStore
-} from 'redux'
-import createSagaMiddleware from 'redux-saga'
-import { all } from 'redux-saga/effects'
-import { createData, watchDataActions } from 'redux-saga-data'
+See first the store install process in [redux-thunk-data](https://github.com/betagouv/redux-saga-data).
 
-const sagaMiddleware = createSagaMiddleware()
-const storeEnhancer = applyMiddleware(sagaMiddleware)
-
-function* rootSaga() {
-  yield all([
-    watchDataActions({
-      rootUrl: "https://myfoo.com",
-    }),
-  ])
-}
-
-const rootReducer = combineReducers({
-  data: createData({ users: [] }),
-})
-
-const store = createStore(rootReducer, storeEnhancer)
-
-sagaMiddleware.run(rootSaga)
-```
-
-Then you can use withLogin in your component:
+Then you can declare a login component like this:
 
 ```javascript
 
@@ -52,6 +19,7 @@ import { connect } from 'react-redux'
 import withLogin from 'with-react-login'
 
 const withConnectedLogin = compose(
+  // we need to pass the 'dispatch' in the props of withLogin
   connect(),
   withLogin({
     currentUserApiPath: '/users/current',
@@ -77,6 +45,49 @@ Depending on what returns GET 'https://myfoo.com/users/current':
 
   - if it is a 200 with { email: 'michel.momarx@youpi.fr' }, FooPage will be rendered,
   - if it is a 400, app will redirect to '/signin' page.
+
+### Using redux-thunk-data
+
+Like above, see the install process in [redux-thunk-data](https://github.com/betagouv/redux-thunk-data).
+
+Then you need just to slightly change setup:
+
+```javascript
+
+import { connect } from 'react-redux'
+import { requestData } from 'redux-thunk-data'
+import withLogin from 'with-react-login'
+
+const withConnectedLogin = compose(
+  // we need to pass the 'dispatch' in the props of withLogin
+  connect(),
+  withLogin({
+    currentUserApiPath: '/users/current',
+    failRedirect: '/signin',
+    // and also the 'promised' action creator
+    requestData
+  })
+)
+...
+```
+
+### Using react-hook-data
+
+See [redux-hook-data](https://github.com/betagouv/redux-hook-data), but this is the same principle.
+
+```javascript
+import { withData } from 'react-hook-data'
+import withLogin from 'with-react-login'
+
+const withConnectedLogin = compose(
+  // we need to pass the 'dispatch' in the props of withLogin
+  withData(),
+  withLogin({
+    currentUserApiPath: '/users/current',
+    failRedirect: '/signin'
+  })
+)
+```
 
 ## Usage with config
 
