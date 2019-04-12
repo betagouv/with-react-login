@@ -7,9 +7,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.0.0",
     "reselect": "^3.0.1",
     "uuid": "^3.3.2"
   },
@@ -47,7 +45,9 @@
     "prettier-stylelint": "^0.4.2",
     "pretty-quick": "^1.6.0",
     "react-addons-test-utils": "^15.6.2",
+    "react-redux": "^5.0.7",
     "react-test-renderer": "^16.5.1",
+    "redux": "^4.0.0",
     "redux-saga": "^0.15.3",
     "redux-saga-data": "2.2.3"
   },
