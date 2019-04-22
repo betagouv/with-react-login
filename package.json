@@ -54,9 +54,7 @@
   "keywords": [
     "react",
     "hoc",
-    "login",
-    "redux",
-    "request-saga-data"
+    "login"
   ],
   "license": "MIT",
   "main": "lib/index.js",

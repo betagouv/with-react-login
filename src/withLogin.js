@@ -8,7 +8,8 @@ import { resolveCurrentUser } from './resolveCurrentUser'
 export const withLogin = (config = {}) => WrappedComponent => {
   const {
     failRedirect,
-    successRedirect
+    successRedirect,
+    withDispatcher
   } = config
 
   const isRequired = typeof config.isRequired === 'undefined'
@@ -16,6 +17,10 @@ export const withLogin = (config = {}) => WrappedComponent => {
     : config.isRequired
   const currentUserApiPath = config.currentUserApiPath || "/users/current"
   const requestData = config.requestData || defaultRequestData
+
+  if (!withDispatcher) {
+    throw Error('You need to define a withDispatcher hoc passing a dispatch function')
+  }
 
   class _withLogin extends PureComponent {
     constructor(props) {
@@ -93,7 +98,12 @@ export const withLogin = (config = {}) => WrappedComponent => {
         return null
       }
 
-      return <WrappedComponent {...this.props} currentUser={currentUser} />
+      return (
+        <WrappedComponent
+          {...this.props}
+          currentUser={currentUser}
+        />
+      )
     }
   }
 
@@ -108,7 +118,7 @@ export const withLogin = (config = {}) => WrappedComponent => {
     location: PropTypes.shape().isRequired,
   }
 
-  return withRouter(_withLogin)
+  return withRouter(withDispatcher(_withLogin))
 }
 
 export default withLogin
