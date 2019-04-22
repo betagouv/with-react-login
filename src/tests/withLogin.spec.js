@@ -5,7 +5,6 @@ import { createBrowserHistory } from 'history'
 import React from 'react'
 import { Route, Router, Switch } from 'react-router-dom'
 import { connect, Provider } from 'react-redux'
-import { compose } from 'redux'
 
 import { withLogin } from '../withLogin'
 import { configureTestStore,
@@ -24,7 +23,7 @@ describe('src | components | pages | hocs | withLogin', () => {
   describe('snapshot', () => {
     it('should match snapshot', () => {
       // given
-      const LoginFoo = withLogin()(Foo)
+      const LoginFoo = withLogin({ withDispatcher: connect() })(Foo)
 
       // when
       const wrapper = shallow(<LoginFoo />)
@@ -42,7 +41,7 @@ describe('src | components | pages | hocs | withLogin', () => {
         const history = createBrowserHistory()
         history.push('/test')
         const store = configureTestStore()
-        const LoginFoo = compose(connect(), withLogin())(Foo)
+        const LoginFoo = withLogin({ withDispatcher: connect() })(Foo)
         configureFetchCurrentUserWithLoginSuccess()
 
         // then
@@ -63,13 +62,10 @@ describe('src | components | pages | hocs | withLogin', () => {
         const history = createBrowserHistory()
         history.push('/test')
         const store = configureTestStore()
-        const LoginFoo = compose(
-          connect(),
-          withLogin({
-            dispatch: store.dispatch,
-            failRedirect: () => "/signin"
-          })
-        )(Foo)
+        const LoginFoo = withLogin({
+          failRedirect: () => "/signin",
+          withDispatcher: connect()
+        })(Foo)
         configureFetchCurrentUserWithLoginFail()
 
         // then

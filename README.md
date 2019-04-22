@@ -18,14 +18,11 @@ Then you can declare a login component like this:
 import { connect } from 'react-redux'
 import withLogin from 'with-react-login'
 
-const withConnectedLogin = compose(
-  // we need to pass the 'dispatch' in the props of withLogin
-  connect(),
-  withLogin({
-    currentUserApiPath: '/users/current',
-    failRedirect: '/signin',
-  })
-)
+const withConnectedLogin = withLogin({
+  currentUserApiPath: '/users/current',
+  withDispatcher: connect(),
+  failRedirect: '/signin',
+})
 
 const FooPage = () => {
   // withLogin passes a currentUser props
@@ -38,7 +35,7 @@ const FooPage = () => {
   )
 }
 
-export default compose(withConnectedLogin)(FooPage)
+export default withConnectedLogin(FooPage)
 ```
 
 Depending on what returns GET 'https://myfoo.com/users/current':
@@ -58,16 +55,12 @@ import { connect } from 'react-redux'
 import { requestData } from 'redux-thunk-data'
 import withLogin from 'with-react-login'
 
-const withConnectedLogin = compose(
-  // we need to pass the 'dispatch' in the props of withLogin
-  connect(),
-  withLogin({
-    currentUserApiPath: '/users/current',
-    failRedirect: '/signin',
-    // and also the 'promised' action creator
-    requestData
-  })
-)
+const withConnectedLogin = withLogin({
+  currentUserApiPath: '/users/current',
+  failRedirect: '/signin',
+  requestData,
+  withDispatcher: connect()
+})
 ...
 ```
 
@@ -76,17 +69,14 @@ const withConnectedLogin = compose(
 See [redux-hook-data](https://github.com/betagouv/redux-hook-data), but this is the same principle.
 
 ```javascript
-import { withData } from 'react-hook-data'
+import { DataContext } from 'react-hook-data'
 import withLogin from 'with-react-login'
 
-const withConnectedLogin = compose(
-  // we need to pass the 'dispatch' in the props of withLogin
-  withData(),
-  withLogin({
-    currentUserApiPath: '/users/current',
-    failRedirect: '/signin'
-  })
-)
+const withConnectedLogin = withLogin({
+  currentUserApiPath: '/users/current',
+  failRedirect: '/signin',
+  withDispatcher: DataContext
+})
 ```
 
 ## Usage with config
