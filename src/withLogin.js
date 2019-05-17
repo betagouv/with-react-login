@@ -9,7 +9,8 @@ export const withLogin = (config = {}) => WrappedComponent => {
   const {
     failRedirect,
     successRedirect,
-    withDispatcher
+    withDispatcher,
+    ...requestDataConfig
   } = config
 
   const isRequired = typeof config.isRequired === 'undefined'
@@ -48,7 +49,7 @@ export const withLogin = (config = {}) => WrappedComponent => {
           handleFail: this.handleFailLogin,
           handleSuccess: this.handleSuccessLogin,
           resolve: resolveCurrentUser,
-          ...config
+          ...requestDataConfig
         }))
     }
 
