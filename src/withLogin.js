@@ -33,7 +33,7 @@ export const withLogin = (config = {}) => WrappedComponent => {
     }
 
     componentDidMount = () => {
-      const { dispatch, history, location } = this.props
+      const { dispatch } = this.props
       const { canRenderChildren, currentUser } = this.state
 
       // we are logged already, so it is already cool:
@@ -45,47 +45,54 @@ export const withLogin = (config = {}) => WrappedComponent => {
       dispatch(
         requestData({
           apiPath: currentUserApiPath,
-          handleFail: () => {
-            if (failRedirect) {
-              let computedFailRedirect = failRedirect
-              if (typeof failRedirect === 'function') {
-                computedFailRedirect = failRedirect(this.props)
-              }
-              if (computedFailRedirect === location.pathname) {
-                return
-              }
-              history.push(computedFailRedirect)
-              return
-            }
-            // if the login failed and we have no failRedirect and that the login
-            // is not required we can still render what
-            // is in the page
-            if (!isRequired) {
-              this.setState({ canRenderChildren: true })
-            }
-          },
-          handleSuccess: (state, action) => {
-            const { payload: { datum } } = action
-
-            if (successRedirect) {
-              let computedSuccessRedirect = successRedirect
-              if (typeof successRedirect === 'function') {
-                computedSuccessRedirect = successRedirect(this.props)
-              }
-              if (computedSuccessRedirect === location.pathname) {
-                return
-              }
-              history.push(computedSuccessRedirect)
-              return
-            }
-
-            this.setState({
-              canRenderChildren: true,
-              currentUser: resolveCurrentUser(datum)
-            })
-          },
-          resolve: resolveCurrentUser
+          handleFail: this.handleFailLogin,
+          handleSuccess: this.handleSuccessLogin,
+          resolve: resolveCurrentUser,
+          ...config
         }))
+    }
+
+    handleFailLogin = () => {
+      const { history, location } = this.props
+      if (failRedirect) {
+        let computedFailRedirect = failRedirect
+        if (typeof failRedirect === 'function') {
+          computedFailRedirect = failRedirect(this.props)
+        }
+        if (computedFailRedirect === location.pathname) {
+          return
+        }
+        history.push(computedFailRedirect)
+        return
+      }
+      // if the login failed and we have no failRedirect and that the login
+      // is not required we can still render what
+      // is in the page
+      if (!isRequired) {
+        this.setState({ canRenderChildren: true })
+      }
+    }
+
+    handleSuccessLogin = (state, action) => {
+      const { history, location } = this.props
+      const { payload: { datum } } = action
+
+      if (successRedirect) {
+        let computedSuccessRedirect = successRedirect
+        if (typeof successRedirect === 'function') {
+          computedSuccessRedirect = successRedirect(this.props)
+        }
+        if (computedSuccessRedirect === location.pathname) {
+          return
+        }
+        history.push(computedSuccessRedirect)
+        return
+      }
+
+      this.setState({
+        canRenderChildren: true,
+        currentUser: resolveCurrentUser(datum)
+      })
     }
 
     render() {
