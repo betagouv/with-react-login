@@ -1,18 +1,15 @@
 import { requestData as defaultRequestData } from 'fetch-normalize-data'
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
-import { withRouter } from 'react-router-dom'
 
 import { resolveCurrentUser } from './resolveCurrentUser'
 
 export const withLogin = (config = {}) => WrappedComponent => {
   const {
-    failRedirect,
-    successRedirect,
     withDispatcher,
     ...requestDataConfig
   } = config
-
+  const { handleFail, handleSuccess } = requestDataConfig
   const isRequired = typeof config.isRequired === 'undefined'
     ? true
     : config.isRequired
@@ -44,50 +41,31 @@ export const withLogin = (config = {}) => WrappedComponent => {
       }
 
       dispatch(
-        requestData({
+        requestData(Object.assign({
           apiPath: currentUserApiPath,
-          handleFail: this.handleFailLogin,
-          handleSuccess: this.handleSuccessLogin,
           resolve: resolveCurrentUser,
           ...requestDataConfig
-        }))
+        }, {
+          handleFail: this.handleFailLogin,
+          handleSuccess: this.handleSuccessLogin
+        })))
     }
 
-    handleFailLogin = () => {
-      const { history, location } = this.props
-      if (failRedirect) {
-        let computedFailRedirect = failRedirect
-        if (typeof failRedirect === 'function') {
-          computedFailRedirect = failRedirect(this.props)
-        }
-        if (computedFailRedirect === location.pathname) {
-          return
-        }
-        history.push(computedFailRedirect)
-        return
+    handleFailLogin = (state, action) => {
+      if (handleFail) {
+        handleFail(state, action, this.props)
       }
-      // if the login failed and we have no failRedirect and that the login
-      // is not required we can still render what
-      // is in the page
+
       if (!isRequired) {
         this.setState({ canRenderChildren: true })
       }
     }
 
     handleSuccessLogin = (state, action) => {
-      const { history, location } = this.props
       const { payload: { datum } } = action
 
-      if (successRedirect) {
-        let computedSuccessRedirect = successRedirect
-        if (typeof successRedirect === 'function') {
-          computedSuccessRedirect = successRedirect(this.props)
-        }
-        if (computedSuccessRedirect === location.pathname) {
-          return
-        }
-        history.push(computedSuccessRedirect)
-        return
+      if (handleSuccess) {
+        handleSuccess(state, action, this.props)
       }
 
       this.setState({
@@ -121,12 +99,10 @@ export const withLogin = (config = {}) => WrappedComponent => {
 
   _withLogin.propTypes = {
     dispatch: PropTypes.func.isRequired,
-    history: PropTypes.shape().isRequired,
     initialCurrentUser: PropTypes.shape(),
-    location: PropTypes.shape().isRequired,
   }
 
-  return withRouter(withDispatcher(_withLogin))
+  return withDispatcher(_withLogin)
 }
 
 export default withLogin
