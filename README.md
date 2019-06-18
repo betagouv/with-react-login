@@ -16,13 +16,18 @@ Then you can declare a login component like this:
 ```javascript
 
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { compose } from 'redux'
 import withLogin from 'with-react-login'
 
-const withConnectedLogin = withLogin({
-  currentUserApiPath: '/users/current',
-  withDispatcher: connect(),
-  failRedirect: '/signin',
-})
+const withConnectedLogin = compose(
+  withRouter,
+  withLogin({
+    currentUserApiPath: '/users/current',
+    handleFail: (state, action, { history }) => history.push('/signin'),
+    withDispatcher: connect(),
+  })
+)
 
 const FooPage = () => {
   // withLogin passes a currentUser props
@@ -53,14 +58,18 @@ Then you need just to slightly change setup:
 
 import { connect } from 'react-redux'
 import { requestData } from 'redux-thunk-data'
+import { compose } from 'redux'
 import withLogin from 'with-react-login'
 
-const withConnectedLogin = withLogin({
-  currentUserApiPath: '/users/current',
-  failRedirect: '/signin',
-  requestData,
-  withDispatcher: connect()
-})
+const withConnectedLogin = compose(
+  withRouter,
+  withLogin({
+    currentUserApiPath: '/users/current',
+    handleFail: (state, action, { history }) => history.push('/signin'),
+    requestData,
+    withDispatcher: connect()
+  })
+)
 ...
 ```
 
@@ -74,7 +83,7 @@ import withLogin from 'with-react-login'
 
 const withConnectedLogin = withLogin({
   currentUserApiPath: '/users/current',
-  failRedirect: '/signin',
+  handleFail: (state, action, { history }) => history.push('/signin'),
   withDispatcher: DataContext
 })
 ```

@@ -23,7 +23,10 @@ describe('src | components | pages | hocs | withLogin', () => {
   describe('snapshot', () => {
     it('should match snapshot', () => {
       // given
-      const LoginFoo = withLogin({ withDispatcher: connect() })(Foo)
+      const LoginFoo = withLogin({
+        withDispatcher: WrappedComponent => () =>
+          <WrappedComponent dispatch={() => {}} />
+      })(Foo)
 
       // when
       const wrapper = shallow(<LoginFoo />)
@@ -63,7 +66,7 @@ describe('src | components | pages | hocs | withLogin', () => {
         history.push('/test')
         const store = configureTestStore()
         const LoginFoo = withLogin({
-          failRedirect: () => "/signin",
+          handleFail: () => history.push("/signin"),
           withDispatcher: connect()
         })(Foo)
         configureFetchCurrentUserWithLoginFail()
