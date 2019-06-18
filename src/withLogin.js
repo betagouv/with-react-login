@@ -52,26 +52,39 @@ export const withLogin = (config = {}) => WrappedComponent => {
     }
 
     handleFailLogin = (state, action) => {
+
+      if (!isRequired) {
+        this.setState(
+          { canRenderChildren: true },
+          () => {
+            if (handleFail) {
+              handleFail(state, action, this.props)
+            }
+          }
+        )
+        return
+      }
+
       if (handleFail) {
         handleFail(state, action, this.props)
       }
 
-      if (!isRequired) {
-        this.setState({ canRenderChildren: true })
-      }
     }
 
     handleSuccessLogin = (state, action) => {
       const { payload: { datum } } = action
 
-      if (handleSuccess) {
-        handleSuccess(state, action, this.props)
-      }
-
-      this.setState({
-        canRenderChildren: true,
-        currentUser: resolveCurrentUser(datum)
-      })
+      this.setState(
+        {
+          canRenderChildren: true,
+          currentUser: resolveCurrentUser(datum)
+        },
+        () => {
+          if (handleSuccess) {
+            handleSuccess(state, action, this.props)
+          }
+        }
+      )
     }
 
     render() {
