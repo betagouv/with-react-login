@@ -3044,16 +3044,17 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-fetch-normalize-data@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.0.0.tgz#31f35b8d2d379ead22a58ff53534e13a41a47b73"
+fetch-normalize-data@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.1.0.tgz#25c6e1689f422052c71733295910bafc3c3a990a"
   dependencies:
     eslint "^5.8.0"
     lodash.uniqby "^4.7.0"
 
-fetch-normalize-data@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.1.0.tgz#25c6e1689f422052c71733295910bafc3c3a990a"
+fetch-normalize-data@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.2.0.tgz#dea9eed7857927dbdf2e392231629f5d4245b159"
+  integrity sha512-Ja7DoPoN0WoMFXslP7dfHyOnnkU8r9rZjDz6j6lpWJ+pUmurrO+B9ptTy04QuUjV3iUQt0Ca54SXjE+d4d8WIw==
   dependencies:
     eslint "^5.8.0"
     lodash.uniqby "^4.7.0"
@@ -5930,12 +5931,13 @@ redent@^2.0.0:
     indent-string "^3.0.0"
     strip-indent "^2.0.0"
 
-redux-saga-data@2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/redux-saga-data/-/redux-saga-data-2.2.3.tgz#22cabc95c406fcc0df80f34a26fedc86ea8005f6"
+redux-saga-data@2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/redux-saga-data/-/redux-saga-data-2.5.1.tgz#fe058af98fb8309616a1827fc0a232c2e78bba72"
+  integrity sha512-+e6m+6feT7sMevhpwO6IuI4XgtccOo1iRaLyCnlQpx3jJkPE0LPmWKuui35GxOZyRCCPUFVdgMRvLH/x3lAl9A==
   dependencies:
     eslint "^5.8.0"
-    fetch-normalize-data "1.0.0"
+    fetch-normalize-data "1.2.0"
     prop-types "^15.6.2"
     redux "^4.0.0"
     redux-saga "^0.15.3"
