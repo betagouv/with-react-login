@@ -56,7 +56,7 @@
     "hoc",
     "login"
   ],
-  "license": "MIT",
+  "license": "Mozilla Public License",
   "main": "lib/index.js",
   "name": "with-react-login",
   "private": false,
