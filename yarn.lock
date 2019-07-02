@@ -3052,6 +3052,14 @@ fetch-normalize-data@1.2.0:
     eslint "^5.8.0"
     lodash.uniqby "^4.7.0"
 
+fetch-normalize-data@1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.2.2.tgz#f339573cebb4117728c8636b6808a82d030008ed"
+  integrity sha512-liEweNbgnqP9zqiljgyvdgJcTZSw/I2IAe99ctcXWIkk/iYtjCnFOW+Ua5plHuoHJ/LXd5yiq61KU48Bzx22xQ==
+  dependencies:
+    eslint "^5.8.0"
+    lodash.uniqby "^4.7.0"
+
 figures@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/figures/-/figures-2.0.0.tgz#3ab1a2d2a62c8bfb431a0c94cb797a2fce27c962"
