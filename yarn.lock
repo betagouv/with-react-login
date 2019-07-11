@@ -3052,10 +3052,10 @@ fetch-normalize-data@1.2.0:
     eslint "^5.8.0"
     lodash.uniqby "^4.7.0"
 
-fetch-normalize-data@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.2.2.tgz#f339573cebb4117728c8636b6808a82d030008ed"
-  integrity sha512-liEweNbgnqP9zqiljgyvdgJcTZSw/I2IAe99ctcXWIkk/iYtjCnFOW+Ua5plHuoHJ/LXd5yiq61KU48Bzx22xQ==
+fetch-normalize-data@1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.2.3.tgz#f006fc49de99b81babec5a14992dd23866a8c7be"
+  integrity sha512-RCOcidV4j4Uw7jD6Nw3EUnTcilE0vdpXUfnBkZ9F9zV1BpXL5Nqp3/iWq7c89wppjpk1DM1XheQE/65+b0J0TQ==
   dependencies:
     eslint "^5.8.0"
     lodash.uniqby "^4.7.0"
