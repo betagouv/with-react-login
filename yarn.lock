@@ -3044,18 +3044,10 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-fetch-normalize-data@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.2.0.tgz#dea9eed7857927dbdf2e392231629f5d4245b159"
-  integrity sha512-Ja7DoPoN0WoMFXslP7dfHyOnnkU8r9rZjDz6j6lpWJ+pUmurrO+B9ptTy04QuUjV3iUQt0Ca54SXjE+d4d8WIw==
-  dependencies:
-    eslint "^5.8.0"
-    lodash.uniqby "^4.7.0"
-
-fetch-normalize-data@1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.2.3.tgz#f006fc49de99b81babec5a14992dd23866a8c7be"
-  integrity sha512-RCOcidV4j4Uw7jD6Nw3EUnTcilE0vdpXUfnBkZ9F9zV1BpXL5Nqp3/iWq7c89wppjpk1DM1XheQE/65+b0J0TQ==
+fetch-normalize-data@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.3.0.tgz#51b432369fb96100f54a43752f0f9280f672e3cf"
+  integrity sha512-j+SRwXWrGpYHSzqPNTv1PRjshOeoBMQrWyp7Ft4M9PXnmM+WVb0oq9gvnMU+YV3doR/ZPPrP3mmWWAPY9MHp6g==
   dependencies:
     eslint "^5.8.0"
     lodash.uniqby "^4.7.0"
@@ -5932,13 +5924,13 @@ redent@^2.0.0:
     indent-string "^3.0.0"
     strip-indent "^2.0.0"
 
-redux-saga-data@2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/redux-saga-data/-/redux-saga-data-2.5.1.tgz#fe058af98fb8309616a1827fc0a232c2e78bba72"
-  integrity sha512-+e6m+6feT7sMevhpwO6IuI4XgtccOo1iRaLyCnlQpx3jJkPE0LPmWKuui35GxOZyRCCPUFVdgMRvLH/x3lAl9A==
+redux-saga-data@2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/redux-saga-data/-/redux-saga-data-2.6.0.tgz#ba791945dbbbab675d05bfc3018d66b42e4341c3"
+  integrity sha512-8Myrv0L/l5Q3BwE3QVt15ib6SVgDHzL3Wm3AdVR2JUR8O0JcvkFc94iLVQL768WadnFtR7n8dqMbjoQDg2jIzg==
   dependencies:
     eslint "^5.8.0"
-    fetch-normalize-data "1.2.0"
+    fetch-normalize-data "1.3.0"
     prop-types "^15.6.2"
     redux "^4.0.0"
     redux-saga "^0.15.3"
