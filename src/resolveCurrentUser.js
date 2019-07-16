@@ -1,4 +1,4 @@
-import { currentUserUUID } from './currentUserUUID'
+import currentUserUUID from './currentUserUUID'
 
 export const resolveCurrentUser = userFromRequest => {
   if (!userFromRequest) {

@@ -2,7 +2,7 @@ import { requestData as defaultRequestData } from 'fetch-normalize-data'
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 
-import { resolveCurrentUser } from './resolveCurrentUser'
+import resolveCurrentUser from './resolveCurrentUser'
 
 export const withLogin = (config = {}) => WrappedComponent => {
   const {

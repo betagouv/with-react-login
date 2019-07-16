@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-import { currentUserUUID } from './currentUserUUID'
+import currentUserUUID from './currentUserUUID'
 
 export const selectCurrentUser = createSelector(
   state => state.data.users,
