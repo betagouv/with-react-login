@@ -1,6 +1,6 @@
 import withLogin from './withLogin'
 
-export * from './getUserUUID'
+export * from './getCurrentUserUUID'
 export * from './resolveCurrentUser'
 export * from './selectCurrentUser'
 
