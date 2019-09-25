@@ -3491,12 +3491,14 @@ fetch-normalize-data@1.4.1:
     lodash.uniqby "^4.7.0"
     uuid "^3.3.2"
 
-fetch-normalize-data@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.6.0.tgz#c38fc6f2d87740bef1257a1e19c4915a030da546"
-  integrity sha512-8syIpxTNKjfB5LqMdMGxjR2VdbXFXbhKkEFzNCTREw+ffsqEhXb26i74b8+qE4Knnnah/75Jb/nC3y0jvPS8Lw==
+fetch-normalize-data@1.8.4:
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.8.4.tgz#09c7dc35d4376f860526e3998cb02827c32033c0"
+  integrity sha512-hY+vGN/3PgQxwuKyNs7orvcJlSAR57WxRRka1GAr/I3F8rb5OcMhHi7VJZHYcHZDtXwGzD9e4asMozXhKx/NJA==
   dependencies:
     lodash.uniqby "^4.7.0"
+    re-reselect "^3.4.0"
+    reselect "^3.0.1"
     uuid "^3.3.2"
 
 figures@^3.0.0:
@@ -6626,6 +6628,11 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+re-reselect@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/re-reselect/-/re-reselect-3.4.0.tgz#0f2303f3c84394f57f0cd31fea08a1ca4840a7cd"
+  integrity sha512-JsecfN+JlckncVXTWFWjn0Vk6uInl8GSf4eEd9tTk5qXHlgqkPdILpnYpgZcISXNYAzvfvsCZviaDk8AxyS5sg==
 
 react-addons-test-utils@^15.6.2:
   version "15.6.2"

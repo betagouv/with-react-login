@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "classnames": "2.2.5",
-    "fetch-normalize-data": "1.4.1",
+    "fetch-normalize-data": "1.8.4",
     "lodash.uniq": "^4.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
