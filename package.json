@@ -54,8 +54,8 @@
     "react-router-dom": "^5.0.0",
     "react-test-renderer": "^16.5.1",
     "redux": "^4.0.4",
-    "redux-saga": "^1.0.5",
-    "redux-saga-data": "2.8.1"
+    "redux-saga": "1.1.1",
+    "redux-saga-data": "3.1.7"
   },
   "keywords": [
     "react",
