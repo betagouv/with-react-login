@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
-export class Foo extends Component {
+class Foo extends PureComponent {
   componentDidMount () {
     const { onMountCallback } = this.props
     onMountCallback()
@@ -25,7 +25,9 @@ Foo.defaultProps = {
 }
 
 Foo.propTypes = {
-  currentUser: PropTypes.object.isRequired,
+  currentUser: PropTypes.shape({
+    __IS_CURRENT__: PropTypes.bool.isRequired
+  }).isRequired,
   onMountCallback: PropTypes.func
 }
 

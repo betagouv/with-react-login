@@ -1,18 +1,20 @@
 import 'babel-polyfill'
-
 import { mount, shallow } from 'enzyme'
 import { createBrowserHistory } from 'history'
 import React from 'react'
 import { Route, Router, Switch } from 'react-router-dom'
 import { connect, Provider } from 'react-redux'
+import { requestData } from 'redux-thunk-data'
 
 import withLogin from '../withLogin'
-import { configureTestStore,
+import {
+  configureTestStore,
   configureFetchCurrentUserWithLoginFail,
   configureFetchCurrentUserWithLoginSuccess
 } from './configure'
-import { Foo } from './Foo'
-import { Signin } from './Signin'
+import Foo from './Foo'
+import Signin from './Signin'
+
 
 describe('src | components | pages | hocs | withLogin', () => {
 
@@ -44,7 +46,10 @@ describe('src | components | pages | hocs | withLogin', () => {
         const history = createBrowserHistory()
         history.push('/test')
         const store = configureTestStore()
-        const LoginFoo = withLogin({ withDispatcher: connect() })(Foo)
+        const LoginFoo = withLogin({
+          requestData,
+          withDispatcher: connect()
+        })(Foo)
         configureFetchCurrentUserWithLoginSuccess()
 
         // then
@@ -67,6 +72,7 @@ describe('src | components | pages | hocs | withLogin', () => {
         const store = configureTestStore()
         const LoginFoo = withLogin({
           handleFail: () => history.push("/signin"),
+          requestData,
           withDispatcher: connect()
         })(Foo)
         configureFetchCurrentUserWithLoginFail()
