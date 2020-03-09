@@ -7,5 +7,5 @@ export default createSelector(
   state => state.data.users,
   users => {
     if (!users) return
-    users.find(user => user && user.currentUserUUID === currentUserUUID)
+    return users.find(user => user && user.currentUserUUID === currentUserUUID)
   })
