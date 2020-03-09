@@ -1,7 +1,14 @@
 import withLogin from './withLogin'
 
-export * from './getCurrentUserUUID'
-export * from './resolveCurrentUser'
-export * from './selectCurrentUser'
+import getCurrentUserUUID from './getCurrentUserUUID'
+import resolveCurrentUser from './resolveCurrentUser'
+import selectCurrentUser from './selectCurrentUser'
+
 
 export default withLogin
+
+export {
+  getCurrentUserUUID,
+  resolveCurrentUser,
+  selectCurrentUser
+}

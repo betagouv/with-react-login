@@ -4,7 +4,8 @@ import React, { PureComponent } from 'react'
 
 import resolveCurrentUser from './resolveCurrentUser'
 
-export const withLogin = (config = {}) => WrappedComponent => {
+
+export default (config = {}) => WrappedComponent => {
   const {
     withDispatcher,
     ...requestDataConfig
@@ -117,5 +118,3 @@ export const withLogin = (config = {}) => WrappedComponent => {
 
   return withDispatcher(_withLogin)
 }
-
-export default withLogin
