@@ -6,7 +6,7 @@ import React from 'react'
 import { Route, Router, Switch } from 'react-router-dom'
 import { connect, Provider } from 'react-redux'
 
-import { withLogin } from '../withLogin'
+import withLogin from '../withLogin'
 import { configureTestStore,
   configureFetchCurrentUserWithLoginFail,
   configureFetchCurrentUserWithLoginSuccess
