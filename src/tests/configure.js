@@ -1,46 +1,35 @@
+import { createDataReducer } from 'fetch-normalize-data'
 import {
   applyMiddleware,
   combineReducers,
   createStore
 } from 'redux'
-import createSagaMiddleware from 'redux-saga'
-import { all } from 'redux-saga/effects'
-import { createDataReducer, watchDataActions } from 'redux-saga-data'
+import thunk from 'redux-thunk'
 
-export function configureTestStore() {
 
-  const sagaMiddleware = createSagaMiddleware()
-  const storeEnhancer = applyMiddleware(sagaMiddleware)
+export const configureTestStore = () => {
 
-  function* rootSaga() {
-    yield all([
-      watchDataActions({
-        rootUrl: 'http://foo.com',
-      }),
-    ])
-  }
+  const storeEnhancer = applyMiddleware(
+    thunk.withExtraArgument({ rootUrl: 'http://foo.com' })
+  )
 
   const rootReducer = combineReducers({
-    data: createDataReducer({ users: [] }),
+    data: createDataReducer(),
   })
 
-  const store = createStore(rootReducer, storeEnhancer)
-
-  sagaMiddleware.run(rootSaga)
-
-  return store
+  return createStore(rootReducer, storeEnhancer)
 }
 
-export function configureFetchCurrentUserWithLoginFail () {
+
+export const configureFetchCurrentUserWithLoginFail = () => {
   fetch.mockResponse(JSON.stringify(
     [{ global: ['Nobody is authenticated here'] }],
   ), { status: 400 })
 }
 
-export function configureFetchCurrentUserWithLoginSuccess () {
+
+export const configureFetchCurrentUserWithLoginSuccess = () => {
   fetch.mockResponse(JSON.stringify(
     { email: 'michel.marx@youpi.fr' }
   ), { status: 200 })
 }
-
-export default configureTestStore

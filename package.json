@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "classnames": "2.2.5",
-    "fetch-normalize-data": "1.8.4",
+    "fetch-normalize-data": "1.9.0",
     "lodash.uniq": "^4.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.1",
@@ -54,8 +54,8 @@
     "react-router-dom": "^5.0.0",
     "react-test-renderer": "^16.5.1",
     "redux": "^4.0.4",
-    "redux-saga": "1.1.1",
-    "redux-saga-data": "3.1.7"
+    "redux-thunk": "^2.3.0",
+    "redux-thunk-data": "1.9.0"
   },
   "keywords": [
     "react",
