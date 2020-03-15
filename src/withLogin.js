@@ -21,6 +21,7 @@ export default (config = {}) => WrappedComponent => {
     throw Error('You need to define a withDispatcher hoc passing a dispatch function')
   }
 
+
   class _withLogin extends PureComponent {
     constructor(props) {
       super(props)
@@ -41,26 +42,21 @@ export default (config = {}) => WrappedComponent => {
         this.setState({ canRenderChildren: true })
       }
 
-      dispatch(
-        requestData(Object.assign({
-          apiPath: currentUserApiPath,
-          resolve: resolveCurrentUser,
-          ...requestDataConfig
-        }, {
-          handleFail: this.handleFailLogin,
-          handleSuccess: this.handleSuccessLogin
-        })))
+      dispatch(requestData({
+        apiPath: currentUserApiPath,
+        resolve: resolveCurrentUser,
+        ...requestDataConfig,
+        handleFail: this.handleFailLogin,
+        handleSuccess: this.handleSuccessLogin
+      }))
     }
 
     handleFailLogin = (state, action) => {
-
       if (!isRequired) {
         this.setState(
           { canRenderChildren: true },
           () => {
-            if (handleFail) {
-              handleFail(state, action, this.props)
-            }
+            if (handleFail) handleFail(state, action, this.props)
           }
         )
         return
@@ -81,9 +77,7 @@ export default (config = {}) => WrappedComponent => {
           currentUser: resolveCurrentUser(datum)
         },
         () => {
-          if (handleSuccess) {
-            handleSuccess(state, action, this.props)
-          }
+          if (handleSuccess) handleSuccess(state, action, this.props)
         }
       )
     }
