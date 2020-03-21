@@ -3500,20 +3500,10 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "2.1.1"
 
-fetch-normalize-data@1.10.0-timeout-4:
-  version "1.10.0-timeout-4"
-  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.10.0-timeout-4.tgz#53e782036f84cc7f021f1a5c7c19be980e687077"
-  integrity sha512-KvJ6NmtBOTpvaM2n9nikAkXymtvI/ns0VnePvhdM3T2H33r06sFGsG2gtD6hdDyneKWl3WTmLzx8dPb5cxffHg==
-  dependencies:
-    lodash.uniqby "^4.7.0"
-    re-reselect "^3.4.0"
-    reselect "^3.0.1"
-    uuid "^3.3.2"
-
-fetch-normalize-data@1.10.0-timeout-5:
-  version "1.10.0-timeout-5"
-  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.10.0-timeout-5.tgz#e24f88185941194d4a905a2fbf8aeccd3a271916"
-  integrity sha512-66MmnEj7K7uuCm0B+CKYLu5ItR2vmWZ9mBOIBeiPlwoYfhY3aBJwVZuk6PfKLxKHt0YmqGfP3AiYt37z0SmlCQ==
+fetch-normalize-data@1.10.0-timeout-6:
+  version "1.10.0-timeout-6"
+  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.10.0-timeout-6.tgz#168ab6472e69107d45743769796022c4944825c3"
+  integrity sha512-uj1Umn9r1mt0d8EOkrn3k88Jh+UGHxJlhQ9iiNBkWpYAonIm2XzDy2L3QXJW290aqZzgKncz70beSFR9gHLA2A==
   dependencies:
     lodash.uniqby "^4.7.0"
     re-reselect "^3.4.0"
@@ -6710,12 +6700,12 @@ redent@^2.0.0:
     indent-string "^3.0.0"
     strip-indent "^2.0.0"
 
-redux-thunk-data@1.10.0-timeout-4:
-  version "1.10.0-timeout-4"
-  resolved "https://registry.yarnpkg.com/redux-thunk-data/-/redux-thunk-data-1.10.0-timeout-4.tgz#da47f8c4e71239619bd32aa281e5626503eb914b"
-  integrity sha512-2N4rRK6qhG5hh/WLOBsCQRaL1GuWurQGKJ8muvGH7k6FI2RBEUWuLM5P8o4K4R6iW6W650ESa+TnfWp0k+PsIg==
+redux-thunk-data@1.10.0-timeout-6:
+  version "1.10.0-timeout-6"
+  resolved "https://registry.yarnpkg.com/redux-thunk-data/-/redux-thunk-data-1.10.0-timeout-6.tgz#7acfb7967db7464a56b0fd4057a0b80876ab34d8"
+  integrity sha512-By0LMmaRly2mfWoSD9CSAmUb9FBk8Qm4do0gx5D/4Zoo/Pkil3WnaDCzbzHV5qRw/hUle2zTLtdgJ0XNX2NM3A==
   dependencies:
-    fetch-normalize-data "1.10.0-timeout-4"
+    fetch-normalize-data "1.10.0-timeout-6"
 
 redux-thunk@^2.3.0:
   version "2.3.0"
