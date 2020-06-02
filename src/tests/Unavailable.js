@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { PureComponent } from 'react'
 
 
-class Signin extends PureComponent {
+class Unavailable extends PureComponent {
   componentDidMount () {
     const { onMountCallback } = this.props
     onMountCallback()
@@ -14,14 +14,14 @@ class Signin extends PureComponent {
 }
 
 
-Signin.defaultProps = {
+Unavailable.defaultProps = {
   onMountCallback: () => {}
 }
 
 
-Signin.propTypes = {
+Unavailable.propTypes = {
   onMountCallback: PropTypes.func
 }
 
 
-export default Signin
+export default Unavailable

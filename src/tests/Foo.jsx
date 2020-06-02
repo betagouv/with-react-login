@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 
+
 class Foo extends PureComponent {
   componentDidMount () {
     const { onMountCallback } = this.props
@@ -20,9 +21,11 @@ class Foo extends PureComponent {
   }
 }
 
+
 Foo.defaultProps = {
   onMountCallback: () => {}
 }
+
 
 Foo.propTypes = {
   currentUser: PropTypes.shape({
@@ -30,5 +33,6 @@ Foo.propTypes = {
   }).isRequired,
   onMountCallback: PropTypes.func
 }
+
 
 export default Foo

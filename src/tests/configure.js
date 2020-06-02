@@ -21,10 +21,17 @@ export const configureTestStore = () => {
 }
 
 
+export const configureFetchCurrentUserWithServerError = () => {
+  fetch.mockResponse(JSON.stringify(
+    [{ global: ['Server error, sorry !'] }],
+  ), { status: 500 })
+}
+
+
 export const configureFetchCurrentUserWithLoginFail = () => {
   fetch.mockResponse(JSON.stringify(
-    [{ global: ['Nobody is authenticated here'] }],
-  ), { status: 400 })
+    [{ auth: ['Nobody is authenticated here'] }],
+  ), { status: 401 })
 }
 
 
