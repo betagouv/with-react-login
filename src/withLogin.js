@@ -25,10 +25,13 @@ export default (config = {}) => WrappedComponent => {
   class _withLogin extends PureComponent {
     constructor(props) {
       super(props)
-      const { initialCurrentUser } = props
+      const { currentUser } = props
+      const hasInitialCurrentUser = currentUser && currentUser.__IS_CURRENT__
       this.state = {
-        canRenderChildren: !!initialCurrentUser,
-        currentUser: initialCurrentUser
+        canRenderChildren: hasInitialCurrentUser,
+        currentUser: hasInitialCurrentUser
+          ? initialCurrentUser
+          : null
       }
     }
 
@@ -101,13 +104,9 @@ export default (config = {}) => WrappedComponent => {
     }
   }
 
-  _withLogin.defaultProps = {
-    initialCurrentUser: null
-  }
 
   _withLogin.propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    initialCurrentUser: PropTypes.shape(),
+    dispatch: PropTypes.func.isRequired
   }
 
   return withDispatcher(_withLogin)
