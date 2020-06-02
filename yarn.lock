@@ -3561,10 +3561,10 @@ fetch-normalize-data@1.10.0-timeout-6:
     reselect "^3.0.1"
     uuid "^3.3.2"
 
-fetch-normalize-data@1.10.3:
-  version "1.10.3"
-  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.10.3.tgz#a5c127bd2d9934732c7ccd55b2e479e2641906ae"
-  integrity sha512-vGsaDOkec5raQvzLJSFba4aR93QV3X9Bj7bC8lxCKLLkr1SXEhEw8EO9eiaG+TRtZJc/bvnbcar2NiEEeUZgIg==
+fetch-normalize-data@1.10.6:
+  version "1.10.6"
+  resolved "https://registry.yarnpkg.com/fetch-normalize-data/-/fetch-normalize-data-1.10.6.tgz#714a617ab2f7e086a499893b84e23f415d6beb39"
+  integrity sha512-jaTXvi1ITodIG9OE/71z9Jzj53OSy7NcCDO0p2/AWUAwNJH6+PIKkrl4TB0T7vpRvjczHyp8L2jMfpuTgWUgAQ==
   dependencies:
     lodash.uniqby "^4.7.0"
     re-reselect "^3.4.0"
