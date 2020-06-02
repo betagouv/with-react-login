@@ -27,7 +27,7 @@ export default (config = {}) => WrappedComponent => {
       super(props)
       const { initialCurrentUser } = props
       this.state = {
-        canRenderChildren: typeof initialCurrentUser !== 'undefined',
+        canRenderChildren: !!initialCurrentUser,
         currentUser: initialCurrentUser
       }
     }
