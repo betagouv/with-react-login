@@ -30,7 +30,7 @@ export default (config = {}) => WrappedComponent => {
       this.state = {
         canRenderChildren: hasInitialCurrentUser,
         currentUser: hasInitialCurrentUser
-          ? initialCurrentUser
+          ? currentUser
           : null
       }
     }
